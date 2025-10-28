@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard Admin - Zoes</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="admin.js" defer></script>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="navbar">
+    <div class="logo"><span>🍴</span> Zoes Admin</div>
+    <nav class="menu">
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="admin.html" class="active">DASHBOARD</a></li>
+      </ul>
+    </nav>
+    <div class="nav-icons">
+      <button id="logout-btn" class="logout">🚪 Logout</button>
+    </div>
+  </header>
+
+  <!-- DASHBOARD -->
+  <section class="admin-dashboard">
+    <h2>Manajemen Produk</h2>
+
+    <div class="add-product">
+      <h3>Tambah Produk Baru</h3>
+      <form id="addProductForm">
+        <input type="text" id="productName" placeholder="Nama Produk" required />
+        <input type="text" id="productPrice" placeholder="Harga (contoh: Rp 30.000)" required />
+        <input type="text" id="productImage" placeholder="URL Gambar" required />
+        <button type="submit">Tambah Produk</button>
+      </form>
+    </div>
+
+    <div class="product-list">
+      <h3>Daftar Produk</h3>
+      <div id="productContainer" class="product-grid"></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>© 2025 Zoes Distributor Frozen Food. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

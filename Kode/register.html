@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar Akun - Zoes</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="register.js" defer></script>
+  <style>
+    body {
+      background: #f5f5f5;
+      font-family: Arial, sans-serif;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ff8c00;
+      padding: 15px 40px;
+      color: white;
+    }
+
+    .navbar .logo {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .register-container {
+      max-width: 450px;
+      background: white;
+      margin: 80px auto;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .register-container h2 {
+      text-align: center;
+      color: #ff8c00;
+      margin-bottom: 20px;
+    }
+
+    .register-container input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .register-container button {
+      width: 100%;
+      padding: 10px;
+      background: #ff8c00;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .register-container button:hover {
+      background: #e57c00;
+    }
+
+    .register-container .switch-link {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .register-container .switch-link a {
+      color: #ff8c00;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .register-container .switch-link a:hover {
+      text-decoration: underline;
+    }
+
+    .error {
+      color: red;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .success {
+      color: green;
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="navbar">
+    <div class="logo">🍴 Zoes</div>
+  </header>
+
+  <!-- FORM REGISTER -->
+  <section class="register-container">
+    <h2>Daftar Akun Pembeli</h2>
+    <form id="registerForm">
+      <input type="text" id="newUsername" placeholder="Masukkan username" required>
+      <input type="password" id="newPassword" placeholder="Masukkan password" required>
+      <input type="password" id="confirmPassword" placeholder="Konfirmasi password" required>
+      <button type="submit">Daftar</button>
+      <p id="register-msg"></p>
+    </form>
+
+    <div class="switch-link">
+      <p>Sudah punya akun? <a href="login.html">Login di sini</a></p>
+    </div>
+  </section>
+</body>
+</html>

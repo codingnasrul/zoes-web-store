@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - Zoes</title>
+  <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- ================= NAVBAR ================= -->
+  <header class="navbar">
+    <div class="logo"><span>🟠</span> Zoes</div>
+    <nav class="menu">
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="catalog.html">CATALOG</a></li>
+        <li><a href="contact.html">CONTACT US</a></li>
+      </ul>
+    </nav>
+    <div class="nav-icons">
+      <a href="#"><span>🔍</span></a>
+      <a href="#"><span>❤️</span></a>
+      <a href="cart.html"><span>🛒</span></a>
+      <a href="profile.html"><span>👤</span></a>
+    </div>
+  </header>
+
+  <!-- ================= BREADCRUMB ================= -->
+  <div class="breadcrumb">
+    <a href="index.html">Home</a> > <span>Profile</span>
+  </div>
+
+  <!-- ================= PROFILE SECTION ================= -->
+  <section class="profile-section">
+    <div class="profile-card">
+      <!-- FOTO PROFIL -->
+      <div class="profile-photo">
+        <img id="profileImage" src="assets/profile-user.png" alt="Foto Profil">
+        <input type="file" id="uploadPhoto" accept="image/*" hidden>
+        <button class="btn-ubah" id="btnUbahFoto">Ubah Foto</button>
+      </div>
+
+      <!-- DATA PROFIL -->
+      <div class="profile-info">
+        <div class="profile-header">
+          <h2>PROFILE</h2>
+          <button class="btn-edit" id="btnEdit">✏️ Edit</button>
+        </div>
+
+        <form id="profileForm">
+          <div class="profile-data">
+            <h3>Biodata Diri</h3>
+            <p><strong>Nama:</strong> <span class="text" id="nama">Anonymous</span>
+              <input class="edit-input" id="inputNama" type="text" value="Anonymous" hidden></p>
+            <p><strong>Tempat Tanggal Lahir:</strong> <span class="text" id="ttl">Jakarta, 23 Agustus 2005</span>
+              <input class="edit-input" id="inputTtl" type="text" value="Jakarta, 23 Agustus 2005" hidden></p>
+            <p><strong>Jenis Kelamin:</strong> <span class="text" id="gender">Pria ♂️</span>
+              <select class="edit-input" id="inputGender" hidden>
+                <option>Pria ♂️</option>
+                <option>Wanita ♀️</option>
+              </select></p>
+
+            <h3>Informasi Kontak</h3>
+            <p><strong>Email:</strong> <span class="text" id="email">anonymous@gmail.com</span>
+              <input class="edit-input" id="inputEmail" type="email" value="anonymous@gmail.com" hidden></p>
+            <p><strong>No HP:</strong> <span class="text" id="nohp">+62 857 0984 3241</span>
+              <input class="edit-input" id="inputNohp" type="text" value="+62 857 0984 3241" hidden></p>
+
+            <h3>Alamat</h3>
+            <p><strong>Kampus:</strong> <span class="text" id="kampus">Telkom University Purwokerto</span>
+              <input class="edit-input" id="inputKampus" type="text" value="Telkom University Purwokerto" hidden></p>
+            <p id="alamatWrapper">
+              <span class="text" id="alamat">
+                Jl. DI Panjaitan No.128, Karangreja, Purwokerto Kidul,<br>
+                Kec. Purwokerto Sel., Kab. Banyumas, Jawa Tengah 53147
+              </span>
+              <textarea class="edit-input" id="inputAlamat" hidden>Jl. DI Panjaitan No.128, Karangreja, Purwokerto Kidul, Kec. Purwokerto Sel., Kab. Banyumas, Jawa Tengah 53147</textarea>
+            </p>
+          </div>
+
+          <div class="profile-actions">
+            <button type="button" id="btnSave" class="btn-save" hidden>💾 Simpan</button>
+            <button type="button" id="btnCancel" class="btn-cancel" hidden>✖️ Batal</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <h3>🍴 Zoes</h3>
+        <p>Platform website terpercaya yang menjadi jembatan penghubung antara pengusaha UMKM dengan pelanggan.</p>
+        <small>Developed in Purwokerto. © 2025 Zoes Distributor Frozen Food</small>
+      </div>
+      <div class="footer-right">
+        <h4>Link</h4>
+        <ul>
+          <li><a href="#">Cara Pemesanan</a></li>
+          <li><a href="#">Syarat dan Ketentuan</a></li>
+          <li><a href="#">Kebijakan Privasi</a></li>
+          <li><a href="#">Follow Kami</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btnEdit = document.getElementById("btnEdit");
+    const btnSave = document.getElementById("btnSave");
+    const btnCancel = document.getElementById("btnCancel");
+    const btnUbahFoto = document.getElementById("btnUbahFoto");
+    const uploadPhoto = document.getElementById("uploadPhoto");
+    const profileImage = document.getElementById("profileImage");
+
+    // === Toggle Edit Mode ===
+    btnEdit.addEventListener("click", () => {
+      document.querySelectorAll(".text").forEach(e => e.hidden = true);
+      document.querySelectorAll(".edit-input").forEach(e => e.hidden = false);
+      btnSave.hidden = false;
+      btnCancel.hidden = false;
+      btnEdit.hidden = true;
+    });
+
+    // === Simpan perubahan ===
+    btnSave.addEventListener("click", () => {
+      document.querySelectorAll(".edit-input").forEach(input => {
+        const id = input.id.replace("input", "");
+        const span = document.getElementById(id.toLowerCase());
+        if (span && input.value) span.innerText = input.value;
+      });
+
+      document.querySelectorAll(".text").forEach(e => e.hidden = false);
+      document.querySelectorAll(".edit-input").forEach(e => e.hidden = true);
+      btnSave.hidden = true;
+      btnCancel.hidden = true;
+      btnEdit.hidden = false;
+    });
+
+    // === Batalkan perubahan ===
+    btnCancel.addEventListener("click", () => {
+      document.querySelectorAll(".edit-input").forEach(e => e.hidden = true);
+      document.querySelectorAll(".text").forEach(e => e.hidden = false);
+      btnSave.hidden = true;
+      btnCancel.hidden = true;
+      btnEdit.hidden = false;
+    });
+
+    // === Ubah Foto Profil ===
+    btnUbahFoto.addEventListener("click", () => uploadPhoto.click());
+    uploadPhoto.addEventListener("change", (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+          profileImage.src = ev.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+  </script>
+</body>
+</html>

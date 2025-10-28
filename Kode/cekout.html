@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Zoes</title>
+  <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">🍴 Zoes</div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="catalog.html">Catalog</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+  </header>
+
+  <main class="checkout-container">
+    <h2>Checkout</h2>
+
+    <!-- Alamat -->
+    <div class="checkout-card">
+      <h3>Alamat Pengiriman</h3>
+      <p>📍 Telkom University Purwokerto, Jl. DI Panjaitan No.128, Karangreja, Purwokerto Kidul, Banyumas, Jawa Tengah 53147</p>
+      <button class="btn-outline">Ganti</button>
+    </div>
+
+    <!-- Produk -->
+    <div class="checkout-card product-card">
+      <h3>Produk yang Dibeli</h3>
+      <div class="cart-item">
+        <img src="produk1.jpg" alt="Mozzarella Stick">
+        <div class="item-info">
+          <h4>Mozzarella Stick</h4>
+          <p>Rp 30.000</p>
+          <div class="quantity">
+            <button>-</button>
+            <input type="number" value="1" min="1">
+            <button>+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Metode Pembayaran -->
+    <div class="checkout-card">
+      <h3>Metode Pembayaran</h3>
+      <label class="payment-option">
+        <input type="radio" name="payment" value="qris">
+        <span>Scan QRIS</span>
+      </label>
+      <label class="payment-option">
+        <input type="radio" name="payment" value="cod" checked>
+        <span>Bayar di Tempat (COD)</span>
+      </label>
+    </div>
+
+    <!-- Ringkasan -->
+    <div class="checkout-card summary-card">
+      <h3>Cek Ringkasan Transaksimu</h3>
+      <div class="summary-row">
+        <span>Total Harga</span>
+        <span>Rp 30.000</span>
+      </div>
+      <div class="summary-row">
+        <span>Total Ongkos Kirim</span>
+        <span>Rp 20.000</span>
+      </div>
+      <div class="summary-row">
+        <span>Biaya Layanan</span>
+        <span>Rp 1.000</span>
+      </div>
+      <div class="summary-row total">
+        <span>Total Tagihan</span>
+        <span>Rp 51.000</span>
+      </div>
+      <button class="btn-full">Bayar Sekarang</button>
+    </div>
+  </main>
+</body>
+</html>
+

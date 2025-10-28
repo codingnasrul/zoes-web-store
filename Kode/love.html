@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wishlist - Zoes</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .wishlist-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 30px;
+    }
+    .wishlist-item {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      width: 180px;
+      padding: 10px;
+      text-align: center;
+      transition: 0.3s;
+    }
+    .wishlist-item:hover {
+      transform: scale(1.05);
+    }
+    .wishlist-item img {
+      width: 100%;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">
+      <span>🍴</span> Zoes
+    </div>
+
+    <nav class="menu">
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="catalog.html">CATALOG</a></li>
+        <li><a href="contact.html">CONTACT US</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-icons">
+      <a href="pencarian.html"><span>🔍</span></a>
+      <a href="love.html"><span>❤️</span></a>
+      <a href="cart.html"><span>🛒</span></a>
+      <a href="profile.html"><span>👤</span></a>
+    </div>
+  </header>
+
+  <section>
+    <h2 style="text-align:center; margin-top:20px;">💖 Wishlist Produk</h2>
+    <div id="wishlist-container" class="wishlist-container"></div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 Zoes Distributor Frozen Food</p>
+  </footer>
+
+  <script>
+    const container = document.querySelector("#wishlist-container");
+    const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+    if (wishlist.length === 0) {
+      container.innerHTML = "<p>Tidak ada produk di wishlist 😢</p>";
+    } else {
+      container.innerHTML = wishlist.map(item => `
+        <div class="wishlist-item">
+          <a href="${item.link}">
+            <img src="${item.image}" alt="${item.name}">
+            <h3>${item.name}</h3>
+            <p>${item.price}</p>
+          </a>
+        </div>
+      `).join("");
+    }
+  </script>
+</body>
+</html>
